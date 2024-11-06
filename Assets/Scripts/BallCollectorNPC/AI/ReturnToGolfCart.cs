@@ -25,7 +25,8 @@ namespace BallCollectorNPC.AI
             {
                 if (_ballCollector.collectedBall is not null)
                 {
-                    _ballCollector.collectedBall = null;
+                    _ballCollector.DropBall();
+                    //_ballCollector.collectedBall = null;
                     _ballCollector.ResetAgentPath();
                     return Node.Status.Success;
                 }

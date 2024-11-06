@@ -24,6 +24,9 @@ public class CollectStateBehaviour : StateMachineBehaviour
         if (gettingUp)
         {
             _ballCollector.CollectAnimationPlaying = false;
+        }else if (collecting)
+        {
+            _ballCollector.AttachBallToHand();
         }
     }
 }

@@ -5,6 +5,8 @@ using BallCollectorNPC.AI;
 using UnityEngine;
 using UnityEngine.AI;
 using BehaviourTree;
+using TMPro;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Animator))]
@@ -19,7 +21,11 @@ public class BallCollector : MonoBehaviour
     [SerializeField] private float healthPercentageToRush;
     [SerializeField] public GolfBall collectedBall;//Debug
     [SerializeField] public GolfBall targetBall;//Debug
-
+    [SerializeField] private Transform leftHandSocket; //to place the collected ball
+    [SerializeField] private int score;//Debug
+    [SerializeField] private Image healthBarFill;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI healthText;
     #endregion
     
     #region PrivateFields
@@ -31,7 +37,8 @@ public class BallCollector : MonoBehaviour
     private BehaviourTree.BehaviourTree _behaviourTree;
     private List<GolfBall> _allBalls;
     private float _initialHealth;
-
+    private bool _fail;
+    private bool _win;
     #endregion
     
     #region AnimatorStringHashes
@@ -56,6 +63,7 @@ public class BallCollector : MonoBehaviour
         _allBalls = FindObjectsOfType<GolfBall>().ToList();
 
         _initialHealth = health;
+        scoreText.text = "0";
     }
 
     private async void Start()
@@ -97,9 +105,12 @@ public class BallCollector : MonoBehaviour
 
     private void Update()
     {
-        _behaviourTree?.Process();
+        if (!_win && !_fail)
+        {
+            _behaviourTree?.Process();
+        }
         SyncAnimatorWithMovement();
-        health -= Time.deltaTime;
+        UpdateHealth();
     }
 
     private void SyncAnimatorWithMovement()
@@ -137,6 +148,23 @@ public class BallCollector : MonoBehaviour
 
     }
 
+    private void UpdateHealth()
+    {
+        if (health <= 0)
+        {
+            health = 0;
+            _fail = true;
+            _agent.ResetPath();
+        }
+        else
+        {
+            health -= Time.deltaTime;
+        }
+
+        healthBarFill.fillAmount -= Time.deltaTime/_initialHealth;
+        healthText.text = health.ToString("F0");
+    }
+    
     public void ReturnToGolfCart()
     {
         _agent.SetDestination(golfCart.position);
@@ -188,6 +216,10 @@ public class BallCollector : MonoBehaviour
     public void BallCollected(GolfBall golfBall)
     {
         _allBalls.Remove(golfBall);
+        if (_allBalls.Count == 0)
+        {
+            _win = true;
+        }
     }
 
     public void CollectAnimation()
@@ -195,6 +227,28 @@ public class BallCollector : MonoBehaviour
         _animator.SetTrigger(Collect);       
     }
 
-    
+    public void AttachBallToHand()
+    {
+        print("Attaching Ball");
+        collectedBall.UseGravity(false);
+        var t = collectedBall.transform;
+        t.parent = leftHandSocket;
+        t.localPosition = Vector3.zero;
+        t.localRotation = Quaternion.Euler(Vector3.zero);
+    }
+
+    public void DropBall()
+    {
+        UpdateScore(collectedBall.Point);
+        collectedBall.UseGravity(true);
+        collectedBall.transform.parent = null;
+        collectedBall = null;
+    }
+
+    private void UpdateScore(int value)
+    {
+        score += value;
+        scoreText.text = score.ToString();
+    }
     
 }

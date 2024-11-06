@@ -8,8 +8,12 @@ public class GolfBall : MonoBehaviour
 
     private MeshRenderer _meshRenderer;
 
+    private Rigidbody _rb;
+
     private void Awake()
     {
+        _rb = GetComponent<Rigidbody>();
+        
         _meshRenderer = GetComponent<MeshRenderer>();
         
         _meshRenderer.material = data.material;
@@ -17,5 +21,9 @@ public class GolfBall : MonoBehaviour
         Point = data.point;
     }
 
+    public void UseGravity(bool value)
+    {
+        _rb.useGravity = value;
+    }
     
 }
