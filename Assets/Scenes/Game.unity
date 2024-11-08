@@ -459,6 +459,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GolfBall (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3438533959602482664, guid: 1aa3d20a2e17a1a4e923a53853517469,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa3d20a2e17a1a4e923a53853517469, type: 3}
 --- !u!1001 &218885371
@@ -533,6 +538,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GolfBall (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438533959602482664, guid: 1aa3d20a2e17a1a4e923a53853517469,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa3d20a2e17a1a4e923a53853517469, type: 3}
@@ -1124,6 +1134,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GolfBall (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3438533959602482664, guid: 1aa3d20a2e17a1a4e923a53853517469,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa3d20a2e17a1a4e923a53853517469, type: 3}
 --- !u!1 &412958781
@@ -1343,6 +1358,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GolfBall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438533959602482664, guid: 1aa3d20a2e17a1a4e923a53853517469,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa3d20a2e17a1a4e923a53853517469, type: 3}
@@ -1922,6 +1942,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GolfBall (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3438533959602482664, guid: 1aa3d20a2e17a1a4e923a53853517469,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa3d20a2e17a1a4e923a53853517469, type: 3}
 --- !u!1 &841268234
@@ -2230,6 +2255,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GolfBall (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 3438533959602482664, guid: 1aa3d20a2e17a1a4e923a53853517469,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa3d20a2e17a1a4e923a53853517469, type: 3}
 --- !u!1 &909343401
@@ -2530,6 +2560,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GolfBall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438533959602482664, guid: 1aa3d20a2e17a1a4e923a53853517469,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa3d20a2e17a1a4e923a53853517469, type: 3}
@@ -2998,6 +3033,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GolfBall (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3438533959602482664, guid: 1aa3d20a2e17a1a4e923a53853517469,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa3d20a2e17a1a4e923a53853517469, type: 3}
 --- !u!1 &1306844446
@@ -3165,6 +3205,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GolfBall (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438533959602482664, guid: 1aa3d20a2e17a1a4e923a53853517469,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa3d20a2e17a1a4e923a53853517469, type: 3}
@@ -3606,6 +3651,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GolfBall (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3438533959602482664, guid: 1aa3d20a2e17a1a4e923a53853517469,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa3d20a2e17a1a4e923a53853517469, type: 3}
 --- !u!1001 &1991393450
@@ -3680,6 +3730,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GolfBall (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438533959602482664, guid: 1aa3d20a2e17a1a4e923a53853517469,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1aa3d20a2e17a1a4e923a53853517469, type: 3}

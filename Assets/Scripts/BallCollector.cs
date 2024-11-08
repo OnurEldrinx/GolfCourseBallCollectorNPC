@@ -48,7 +48,9 @@ public class BallCollector : MonoBehaviour
     private static readonly int Move = Animator.StringToHash("Move");
     private static readonly int MovementBlend = Animator.StringToHash("MovementBlend");
     private static readonly int Collect = Animator.StringToHash("Collect");
-
+    private static readonly int Win = Animator.StringToHash("Win");
+    private static readonly int Fail = Animator.StringToHash("Fail");
+    
     #endregion
 
     public static Action<bool> OnGameStarted;
@@ -92,7 +94,7 @@ public class BallCollector : MonoBehaviour
         deliverySequence.AddChild(new Leaf("Return to Cart",new ReturnToGolfCart(this)));
 
         Sequence enoughHealthSequence = new Sequence("Enough Health Sequence",75);
-        enoughHealthSequence.AddChild(new Leaf("Is Health Enough?",new Condition(CheckHealth)));
+        enoughHealthSequence.AddChild(new Leaf("Is Health Enough?",new CheckHealth(this)));
         enoughHealthSequence.AddChild(new Leaf("Collect Closest Ball,Highest Priority",new CollectClosestBallWithHighestPriority(this)));
 
         Leaf collectClosestBall = new Leaf("Collect Closest",new CollectClosestBall(this),50);
@@ -173,6 +175,7 @@ public class BallCollector : MonoBehaviour
             health = 0;
             _fail = true;
             _agent.ResetPath();
+            _animator.SetTrigger(Fail);
         }
         else
         {
@@ -221,7 +224,7 @@ public class BallCollector : MonoBehaviour
         return collectedBall is not null;
     }
 
-    private bool CheckHealth()
+    public bool EnoughHealth()
     {
         return health > _initialHealth * healthPercentageToRush;
     }
@@ -260,6 +263,7 @@ public class BallCollector : MonoBehaviour
         if (_allBalls.Count == 0)
         {
             _win = true;
+            _animator.SetTrigger(Win);
         }
     }
 

@@ -15,6 +15,12 @@ namespace BallCollectorNPC.AI
         public Node.Status Process()
         {
 
+            if (!_ballCollector.EnoughHealth())
+            {
+                _ballCollector.targetBall = null;
+                return Node.Status.Failure;
+            }
+
             if (_ballCollector.targetBall is null && _ballCollector.collectedBall is null)
             {
                 _ballCollector.targetBall = _ballCollector.ClosestBallWithHighestPriority();
