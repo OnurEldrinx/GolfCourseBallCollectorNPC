@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -39,6 +40,7 @@ public class BallCollector : MonoBehaviour
     private float _initialHealth;
     private bool _fail;
     private bool _win;
+    private bool _start;
     #endregion
     
     #region AnimatorStringHashes
@@ -48,7 +50,8 @@ public class BallCollector : MonoBehaviour
     private static readonly int Collect = Animator.StringToHash("Collect");
 
     #endregion
-    
+
+    public static Action<bool> OnGameStarted;
 
     public bool CollectAnimationPlaying { get; set; }
     private void Awake()
@@ -64,6 +67,14 @@ public class BallCollector : MonoBehaviour
 
         _initialHealth = health;
         scoreText.text = "0";
+    }
+
+    private void OnEnable()
+    {
+        OnGameStarted += delegate(bool b)
+        {
+            _start = b;
+        };
     }
 
     private async void Start()
@@ -105,6 +116,8 @@ public class BallCollector : MonoBehaviour
 
     private void Update()
     {
+        if (!_start) { return; }
+        
         if (!_win && !_fail)
         {
             _behaviourTree?.Process();
