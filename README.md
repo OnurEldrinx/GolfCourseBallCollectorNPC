@@ -31,3 +31,4 @@ The health of the NPC decreases by one every second.
 - The NPC can carry only one ball at a time.
 
 ## Video Presentation:
+[![Watch the video](https://img.youtube.com/vi/HyAAwE7HtVc/maxresdefault.jpg)](https://youtu.be/HyAAwE7HtVc)
