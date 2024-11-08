@@ -150,6 +150,11 @@ public class BallCollector : MonoBehaviour
 
     private void UpdateHealth()
     {
+        if (_win || _fail)
+        {
+            return;
+        }
+        
         if (health <= 0)
         {
             health = 0;
@@ -216,10 +221,6 @@ public class BallCollector : MonoBehaviour
     public void BallCollected(GolfBall golfBall)
     {
         _allBalls.Remove(golfBall);
-        if (_allBalls.Count == 0)
-        {
-            _win = true;
-        }
     }
 
     public void CollectAnimation()
@@ -243,6 +244,10 @@ public class BallCollector : MonoBehaviour
         collectedBall.UseGravity(true);
         collectedBall.transform.parent = null;
         collectedBall = null;
+        if (_allBalls.Count == 0)
+        {
+            _win = true;
+        }
     }
 
     private void UpdateScore(int value)
