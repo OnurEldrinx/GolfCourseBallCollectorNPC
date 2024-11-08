@@ -26,6 +26,9 @@ The health of the NPC decreases by one every second.
 - Sequence Nodes: Function as logical AND gates, ensuring multiple conditions are met for specific behaviors.
 - Fallback Mechanism: If the NPC’s health falls below a threshold, the behavior tree triggers a fallback. This prompts the NPC to update its decision-making process based on the new health state.
 ![Tree](https://github.com/user-attachments/assets/6952e479-4308-44f0-8096-4fb82845feab)
+## Decision Fallback Moment Below 25 Health:
+
+![DecisionFallback](https://github.com/user-attachments/assets/7dae8857-6899-4df0-9240-974f6f33f0c2)
 
 ## Assumptions:
 - The NPC can carry only one ball at a time.
